@@ -19,14 +19,14 @@ export default function SearchPage() {
   useState(() => {
     if (term.length || termParameter.length) {
       if (term.length) {
-        dispatch(fetch_search_song(term));
+        dispatch(fetch_search_song(term, 10));
       } else {
-        dispatch(fetch_search_song(termParameter));
+        dispatch(fetch_search_song(termParameter, 10));
       }
     }
   }, [songs, term, termParameter]);
   return (
-    <div className="grid gap-[36px]">
+    <div className="grid gap-[36px] flex justify-center items-center">
       <div>
         <div className="h-[50px] bg-gradient-to-r from-primary to-secondary flex justify-between items-center px-[18px] text-white">
           <i class="fi fi-br-menu-burger"></i>
@@ -47,8 +47,13 @@ export default function SearchPage() {
         ))}
       </div>
       {openSearch ? <OverlaySearch setOpenSearch={setOpenSearch}/> : <></>}
-      <div>
-        <p>Load More</p>
+      <div
+      className="w-full flex justify-center"
+        onClick={(e) => {
+          dispatch(fetch_search_song(termParameter, 10))
+        }}
+      >
+        <p className="px-4 py-2 mb-4 text-xs font-bold bg-[#e2e8f0]  text-gray-500 w-fit rounded-xl" style={{borderRadius:'17px'}}>Load More</p>
       </div>
     </div>
   );
