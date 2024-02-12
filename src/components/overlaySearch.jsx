@@ -19,7 +19,7 @@ export default function OverlaySearch({setOpenSearch}) {
           />
           <button
             onClick={(event) => {
-              dispatch(fetch_search_song(term))
+              dispatch(fetch_search_song(term, 10))
               dispatch(set_term(term))
               navigate('/search?term='+term)
               setOpenSearch(false)

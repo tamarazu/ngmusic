@@ -29,7 +29,7 @@ export const set_term = (value) => {
   };
 };
 
-export const fetch_search_song = (value) => async (dispatch) => {
+export const fetch_search_song = (value, limit) => async (dispatch) => {
   console.log();
   try {
     const { data } = await axios({
@@ -37,7 +37,7 @@ export const fetch_search_song = (value) => async (dispatch) => {
       url: "https://itunes.apple.com/search",
       params: {
         term: value,
-        limit: 10,
+        limit:limit ,
       },
     });
     if (data.resultCount) {
