@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Logo from "assets/logo.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { fetch_search_song } from "store/actions";
+import { fetch_search_song, set_term } from "store/actions";
 import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
@@ -31,7 +31,11 @@ export default function LandingPage() {
           value={term}
         />
         <button
-          onClick={(event) => dispatch(fetch_search_song(term))}
+          onClick={(event) => {
+            dispatch(fetch_search_song(term))
+            dispatch(set_term(term))
+            navigate('/search?term='+term)
+          }}
           className="w-full rounded-large font-bold text-white bg-white/20 text-sm p-3"
         >
           Search

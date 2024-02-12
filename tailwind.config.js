@@ -5,12 +5,14 @@ module.exports = {
     extend: {
       colors: {
         primary: "#712bda",
-        secondary: "#a45deb"
+        secondary: "#a45deb",
+        success: "#10b981",
+        warning: "#f5b014"
       },
     },
     borderRadius: {
-      "large": '20px'
-    }
+      large: "20px",
+    },
   },
   plugins: [],
 };

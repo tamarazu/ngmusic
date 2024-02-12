@@ -22,6 +22,13 @@ export const set_songs = (value) => {
   };
 };
 
+export const set_term = (value) => {
+  return {
+    type: types.SET_TERM,
+    payload: value,
+  };
+};
+
 export const fetch_search_song = (value) => async (dispatch) => {
   console.log();
   try {

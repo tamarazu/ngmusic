@@ -4,7 +4,8 @@ import types from "./types";
 const initialState = {
   loading: false,
   error: false,
-  songs: []
+  songs: [],
+  term: "",
 };
 
 const reducers = (state = initialState, action) => {
@@ -22,11 +23,16 @@ const reducers = (state = initialState, action) => {
     case types.SET_SONGS:
       return {
         ...state,
-        songs: action.payload
-      }
+        songs: action.payload,
+      };
+    case types.SET_TERM:
+      return {
+        ...state,
+        term: action.payload,
+      };
     default:
       return state;
   }
 };
 
-export default reducers
+export default reducers;
