@@ -16,6 +16,7 @@ export default function SearchPage() {
   const [openSearch, setOpenSearch] = useState(false);
   const navigate = useNavigate()
 
+
   useState(() => {
     if (term.length || termParameter.length) {
       if (term.length) {
@@ -27,16 +28,7 @@ export default function SearchPage() {
   }, [songs, term, termParameter]);
   return (
     <div className="grid gap-[36px] flex justify-center items-center">
-      <div>
-        <div className="h-[50px] bg-gradient-to-r from-primary to-secondary flex justify-between items-center px-[18px] text-white">
-          <i class="fi fi-br-menu-burger"></i>
-          <img src={Icon} alt="" onClick={e => {
-            navigate('/')
-          }} />
-          <i class="fi fi-br-search" onClick={(e) => setOpenSearch(true)}></i>
-        </div>
-        <div className="h-[10px] bg-gradient-to-r from-primary to-secondary flex justify-between items-center px-[18px] text-white rounded-b-[50%]"></div>
-      </div>
+      <Navbar/>
       <p>
         Search result for :
         <span className="font-bold text-primary"> {termParameter}</span>
@@ -47,6 +39,9 @@ export default function SearchPage() {
         ))}
       </div>
       {openSearch ? <OverlaySearch setOpenSearch={setOpenSearch}/> : <></>}
+      <div
+      className="relative h-[2rem] w-48 bg-rose-400 rounded-b-[8rem] rounded-t-[0]"
+      ></div>
       <div
       className="w-full flex justify-center"
         onClick={(e) => {

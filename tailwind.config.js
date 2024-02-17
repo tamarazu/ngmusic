@@ -10,9 +10,6 @@ module.exports = {
         warning: "#f5b014"
       },
     },
-    borderRadius: {
-      large: "20px",
-    },
   },
   plugins: [],
 };
